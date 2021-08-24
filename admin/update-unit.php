@@ -2,7 +2,7 @@
 session_start();
 require_once("../includes/connection.php");
 ?>
-<?php include "../includes/header.php" ?>
+<?php include "./headers.php" ?>
 <?php
 if (isset($_GET['id'])) {
           $id = $_GET['id'];
@@ -112,3 +112,5 @@ if (isset($_POST["btn1_submit"])) {
           }
 }
 ?>
+
+<?php include "../includes/footer.php" ?>

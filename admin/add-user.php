@@ -2,7 +2,7 @@
 session_start();
 require_once("../includes/connection.php");
 ?>
-<?php include "../includes/header.php" ?>
+<?php include "./headers.php" ?>
 <?php
 if (isset($_POST["btn_submit"])) {
           //lấy thông tin từ các form bằng phương thức POST
@@ -55,3 +55,4 @@ if (isset($_POST["btn_submit"])) {
                               <input class="submit-btn" type="submit" name="btn_submit" id="btn_submit" value="ADD">
           </form>
 </section>
+<?php include "../includes/footer.php" ?>

@@ -2,26 +2,33 @@
 session_start();
 require_once("../includes/connection.php");
 ?>
-<?php include "../includes/header.php" ?>
+<?php include "./headers.php" ?>
 
 <?php
 $sql = "select * from unit ";
 $query = mysqli_query($conn, $sql);
 ?>
 
-<div class="container">
-          <h4 class="text-center text-light">Danh sách các đơn vị trong trường</h4>
-          <i class="material-icons">
-                    <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
-                              <i class="material-icons">
-                                        <a href="index.php" style="text-decoration: none;color:black">trở lại</a>
-                              </i>
-                    </button>
-          </i>
-</div>
+
 
 <div class=" table-center col-lg-12 col-md-12 m-5 ">
           <div class="table-responsive-md container">
+
+                    <div class="container">
+                              <i class="material-icons">
+                                        <h4 class="text-start my-6 px-5">* Danh sách các đơn vị trong trường</h4>
+                                        <button type="button" rel="tooltip" class="btn btn-secondary btn-just-icon btn-md m-5" data-original-title="" title="">
+                                                  <i class="material-icons">
+                                                            <a href="index.php" style="text-decoration: none;color:black">trở lại</a>
+                                                  </i>
+                                        </button>
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-md" data-original-title="" title="">
+                                                  <i class="material-icons">
+                                                            <a href="add-unit.php" style="text-decoration: none;color:black">thêm đơn vị</a>
+                                                  </i>
+                                        </button>
+                              </i>
+                    </div>
                     <table class="table table-hover table-bordered border-secondary">
                               <thead>
                                         <tr>
@@ -54,7 +61,7 @@ $query = mysqli_query($conn, $sql);
                                                             <td class="text-right"><?= $item['website'] ?></td>
                                                             <td class="text-right"><?= $item['parentId'] ?></td>
 
-                                                            <td class="td-actions"> <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                                                            <td class="td-actions"> <button type="button" rel="tooltip" class="btn btn-warning btn-just-icon btn-sm" data-original-title="" title="">
                                                                                 <i class="material-icons">
                                                                                           <a href="update-unit.php?id=<?= $item['idUnit'] ?>" style="text-decoration: none;color:black">update</a>
                                                                                 </i>
@@ -72,3 +79,4 @@ $query = mysqli_query($conn, $sql);
                     </table>
           </div>
 </div>
+<?php include "../includes/footer.php" ?>

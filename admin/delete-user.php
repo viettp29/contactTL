@@ -3,7 +3,7 @@
 session_start();
 require_once("../includes/connection.php");
 
-include "../includes/header.php";
+include ".//headers.php";
 $id = $_GET['id'];
 $sql = "delete from users where id ='$id'";
 $query = mysqli_query($conn, $sql);
@@ -23,3 +23,4 @@ if (!$query) {
 <?php
 }
 ?>
+<?php include "../includes/footer.php" ?>

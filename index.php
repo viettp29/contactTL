@@ -1,52 +1,70 @@
-<?php include "includes/header.php" ?>
-<div class="innertube">
-          <button class="btn-danger"><a href="login.php" style="
-    color: black;
-    text-decoration: none;
-">đăng nhập</a></button>
-          <h1>Heading</h1>
-          This, too, will pass. If the facts don't fit the theory, change the facts. The past has no power over the present moment.
-          <h3>Heading</h3>
-          <p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now. The past has no power over the present moment. </p>
-          <h3>Heading</h3>
-          <p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now. The smaller your reality, the more convinced you are that you know everything. This, too, will pass. Peace comes from within. Do not seek it without. </p>
-          <h3>Heading</h3>
-          <p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now. </p>
-          <p>You will not be punished for your anger, you will be punished by your anger. The past has no power over the present moment. </p>
-          <p>You will not be punished for your anger, you will be punished by your anger. </p>
-          <h3>Heading</h3>
-          <p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now. Peace comes from within. Do not seek it without. This, too, will pass. </p>
-          <p>You will not be punished for your anger, you will be punished by your anger. The smaller your reality, the more convinced you are that you know everything. If the facts don't fit the theory, change the facts. The past has no power over the present moment. </p>
-</div>
-</div>
-</main>
+<?php
+session_start();
+require_once("./includes/connection.php");
+?>
+<?php include "./includes/header.php"; ?>
+<?php
+$sql = "select * from users ";
+$query = mysqli_query($conn, $sql);
+?>
 
-<nav>
-          <div class="innertube">
-                    <h3>Right heading</h3>
-                    <ul>
-                              <li><a href="#">Link 1</a></li>
-                              <li><a href="#">Link 2</a></li>
-                              <li><a href="#">Link 3</a></li>
-                              <li><a href="#">Link 4</a></li>
-                              <li><a href="#">Link 5</a></li>
-                    </ul>
-                    <h3>Right heading</h3>
-                    <ul>
-                              <li><a href="#">Link 1</a></li>
-                              <li><a href="#">Link 2</a></li>
-                              <li><a href="#">Link 3</a></li>
-                              <li><a href="#">Link 4</a></li>
-                              <li><a href="#">Link 5</a></li>
-                    </ul>
-                    <h3>Right heading</h3>
-                    <ul>
-                              <li><a href="#">Link 1</a></li>
-                              <li><a href="#">Link 2</a></li>
-                              <li><a href="#">Link 3</a></li>
-                              <li><a href="#">Link 4</a></li>
-                              <li><a href="#">Link 5</a></li>
-                    </ul>
-          </div>
-</nav>
-<?php include "includes/footer.php" ?>
+
+<div class=" table-center col-lg-12 col-md-12 m-5 ">
+    <div class="table-responsive-md container">
+        <div class="container">
+            <i class="material-icons">
+                <h4 class="text-center"> DANH SÁCH CÁN BỘ TRONG TRƯỜNG</h4>
+
+            </i>
+        </div>
+        <input class="input my-5 p-2" type="text" id="myInput" onkeyup="myFunction()" style="width:100%" placeholder="Nhập bất kỳ thông tin mà bạn biết về cán bộ ...">
+
+        <table class="table table-hover table-bordered border-secondary my-3" id="myTable">
+            <thead>
+                <tr class="header">
+                    <th class="text-center">STT</th>
+                    <th class="text-center">Họ và Tên</th>
+                    <th class="text-center">Chức vụ</th>
+                    <th class="text-center">Phone Work</th>
+                    <th class="text-center">Số điện thoại</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Mã đơn vị</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $i = 1;
+                foreach ($query as $item) {
+
+                ?>
+                    <tr>
+                        <td class="text-center"><?= $i ?></td>
+                        <td><?= $item['fullName'] ?></td>
+                        <td class="text-center"><?= $item['role'] ?></td>
+                        <td><?= $item['phoneWork'] ?></td>
+                        <td class="text-right"><?= $item['phone'] ?></td>
+                        <td class="text-right"><?= $item['email'] ?></td>
+                        <td class="text-right"><?= $item['idUnit'] ?></td>
+                    </tr>
+
+                <?php $i++;
+                } ?>
+            </tbody>
+        </table>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+
+    </div>
+</div>
+
+
+<?php include "./includes/footer.php" ?>
