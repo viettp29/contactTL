@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 ?>
 <?php include "./headers.php"; ?>
@@ -19,10 +20,9 @@ if (isset($_POST["btn_submit"])) {
                     VALUES ( '$nameUnit', '$phoneWork', '$address', '$email', '$website', '$parentId')";
                     // thực thi câu $sql với biến conn lấy từ file connection.php
                     mysqli_query($conn, $sql);
-                    echo "chúc mừng bạn đã đăng ký thành công";
+                    echo "chúc mừng bạn đã tạo thành công";
           }
 }
-
 ?>
 <section class="get-in-touch">
           <h1 class="title">Create Unit</h1>
@@ -55,5 +55,4 @@ if (isset($_POST["btn_submit"])) {
                               <input class="submit-btn" type="submit" name="btn_submit" id="btn_submit" value="ADD">
           </form>
 </section>
-</body>
 <?php include "../includes/footer.php" ?>

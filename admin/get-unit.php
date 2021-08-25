@@ -1,9 +1,9 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 ?>
 <?php include "./headers.php" ?>
-
 <?php
 $sql = "select * from unit ";
 $query = mysqli_query($conn, $sql);
@@ -33,7 +33,7 @@ $query = mysqli_query($conn, $sql);
                               <thead>
                                         <tr>
                                                   <th class="text-center">STT</th>
-                                                  <!-- <th class="text-center">ID Unit</th> -->
+                                                  <th class="text-center">ID đơn vị</th>
                                                   <th class="text-center">Name Unit</th>
                                                   <th class="text-center">Phone Work</th>
                                                   <th class="text-center">Address</th>
@@ -53,7 +53,7 @@ $query = mysqli_query($conn, $sql);
                                         ?>
                                                   <tr>
                                                             <td class="text-center"><?= $i ?></td>
-                                                            <!-- <td class="text-center"><?= $item['idUnit'] ?></td> -->
+                                                            <td class="text-center"><?= $item['idUnit'] ?></td>
                                                             <td><?= $item['nameUnit'] ?></td>
                                                             <td><?= $item['phoneWork'] ?></td>
                                                             <td class="text-center"><?= $item['address'] ?></td>

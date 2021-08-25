@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 include "./headers.php";
 $id = $_GET['id'];

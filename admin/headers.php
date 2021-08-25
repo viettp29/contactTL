@@ -29,7 +29,7 @@
 
 
                                         <div class="text-end">
-                                                  <span class="border border-danger m-3 p-2 px-3 rounded-pill border-3"><a href="../index.php" class="text-light " style="text-decoration: none">Logout</a></span>
+                                                  <span class="border border-danger m-3 p-2 px-3 rounded-pill border-3"><a href="logout.php" class="text-light " style="text-decoration: none">Logout</a></span>
 
                                         </div>
                               </div>

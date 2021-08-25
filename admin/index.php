@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+<?php include("permission/permission.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +40,7 @@
 </head>
 
 <body class="animsition">
+
       <div class="page-wrapper">
             <!-- HEADER MOBILE-->
             <header class="header-mobile d-block d-lg-none">
@@ -135,7 +140,7 @@
                                                                   </div>
 
                                                                   <div class="account-dropdown__footer">
-                                                                        <a href="../index.php">
+                                                                        <a href="logout.php">
                                                                               <i class="zmdi zmdi-power"></i>Logout</a>
                                                                   </div>
                                                             </div>
@@ -183,4 +188,6 @@
 </body>
 
 </html>
+
+
 <!-- end document-->

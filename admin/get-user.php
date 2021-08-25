@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 ?>
 <?php include "./headers.php" ?>
@@ -21,7 +22,7 @@ $query = mysqli_query($conn, $sql);
                                         </button>
                                         <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-md" data-original-title="" title="">
                                                   <i class="material-icons">
-                                                            <a href="add-unit.php" style="text-decoration: none;color:black">thêm đơn vị</a>
+                                                            <a href="add-user.php" style="text-decoration: none;color:black">thêm cán bộ</a>
                                                   </i>
                                         </button>
                               </i>
@@ -30,6 +31,7 @@ $query = mysqli_query($conn, $sql);
                               <thead>
                                         <tr>
                                                   <th class="text-center">STT</th>
+                                                  <th class="text-center">ID</th>
                                                   <th class="text-center">Họ và Tên</th>
                                                   <th class="text-center">Chức vụ</th>
                                                   <th class="text-center">Phone Work</th>
@@ -49,6 +51,7 @@ $query = mysqli_query($conn, $sql);
                                         ?>
                                                   <tr>
                                                             <td class="text-center"><?= $i ?></td>
+                                                            <td><?= $item['id'] ?></td>
                                                             <td><?= $item['fullName'] ?></td>
                                                             <td class="text-center"><?= $item['role'] ?></td>
                                                             <td><?= $item['phoneWork'] ?></td>

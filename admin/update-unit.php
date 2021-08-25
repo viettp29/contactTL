@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 ?>
 <?php include "./headers.php" ?>
@@ -10,6 +11,32 @@ if (isset($_GET['id'])) {
           $result  = mysqli_query($conn, $sql);
           $data = mysqli_fetch_array($result);
 ?>
+          <?php
+          if (isset($_POST["btn1_submit"])) {
+                    //lấy thông tin từ các form bằng phương thức POST
+                    $idUnit = $_POST['id'];
+                    $nameUnit = $_POST["nameUnit"];
+                    $phoneWork = $_POST["phoneWork"];
+                    $address = $_POST["address"];
+                    $email = $_POST["email"];
+                    $website = $_POST["website"];
+                    $parentId = $_POST["parentId"];
+                    if ($nameUnit == "" || $phoneWork == "" || $address == "" || $email == "") {
+                              echo "bạn vui lòng nhập đầy đủ thông tin";
+                    } else {
+                              $sql = "UPDATE unit SET nameUnit='$nameUnit', phoneWork='$phoneWork', address='$address'
+                    , email='$email', website= '$website', parentId= '$parentId'
+                    WHERE idUnit='$idUnit'";
+                              // thực thi câu $sql với biến conn lấy từ file connection.php
+                              $check = mysqli_query($conn, $sql);
+                              if (!$check) {
+                                        echo "Loi";
+                              } else {
+                                        header("Location: ./get-unit.php");
+                              }
+                    }
+          }
+          ?>
           <section class="get-in-touch">
                     <h1 class="title">update Unit</h1>
                     <form class="contact-form row" action="update-unit.php" method="POST">
@@ -42,14 +69,10 @@ if (isset($_GET['id'])) {
                                         <button class="submit-btn" type="submit" name="btn1_submit">UPDATE</button>
                     </form>
           </section>
-
-
-
 <?php
-} else {
+}
 ?>
-
-          <section class="get-in-touch">
+<!-- <section class="get-in-touch">
                     <h1 class="title">update Unit</h1>
                     <form class="contact-form row" action="update-unit.php" method="POST">
                               <input id="name" type="hidden" name="id">
@@ -57,7 +80,7 @@ if (isset($_GET['id'])) {
                                         <input id="name" class="input-text js-input" type="text" name="nameUnit">
                                         <label class="label" for="name" type="text" id="nameUnit">Tên đơn vị</label>
                               </div>
-                              <div class="form-field col-lg-6 ">
+                              <div class="form-field col-lg-6">
                                         <input id="phone" class="input-text js-input" name="phoneWork" type="text">
                                         <label class="label" for="phone" type="text" id="phoneWork">SĐT đơn vị</label>
                               </div>
@@ -81,36 +104,6 @@ if (isset($_GET['id'])) {
                                         <button class="submit-btn" type="submit" name="btn1_submit">UPDATE</button>
                     </form>
           </section>
-<?php
-}
-?>
 
-<?php
-if (isset($_POST["btn1_submit"])) {
-          //lấy thông tin từ các form bằng phương thức POST
-          $idUnit = $_POST['id'];
-          $nameUnit = $_POST["nameUnit"];
-          $phoneWork = $_POST["phoneWork"];
-          $address = $_POST["address"];
-          $email = $_POST["email"];
-          $website = $_POST["website"];
-          $parentId = $_POST["parentId"];
-          if ($nameUnit == "" || $phoneWork == "" || $address == "" || $email == "") {
-                    echo "bạn vui lòng nhập đầy đủ thông tin";
-          } else {
-                    $sql = "UPDATE unit SET nameUnit='$nameUnit', phoneWork='$phoneWork', address='$address'
-                    , email='$email', website= '$website', parentId= '$parentId'
-                    WHERE idUnit='$idUnit'";
-                    // thực thi câu $sql với biến conn lấy từ file connection.php
-                    $check = mysqli_query($conn, $sql);
-                    if (!$check) {
-                              echo "Loi";
-                    } else {
-                              header("Location: ./get-unit.php");
-                              exit;
-                    }
-          }
-}
-?>
 
 <?php include "../includes/footer.php" ?>

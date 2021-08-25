@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 24, 2021 lúc 06:12 PM
+-- Thời gian đã tạo: Th8 25, 2021 lúc 11:04 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 8.0.9
 
@@ -61,15 +61,18 @@ CREATE TABLE `unit` (
 --
 
 INSERT INTO `unit` (`idUnit`, `nameUnit`, `phoneWork`, `address`, `email`, `website`, `parentId`) VALUES
-(6, 'Khoa công nghệ thông tin 100', '(+84) 024 3 5632211', 'nhà C1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'vpkcntt@tlu.edu.vn', 'http://ce.tlu.edu.vn', 0),
-(7, 'Khoa công nghệ thông tin', '(+84) 024 3 5632211', 'nhà C1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'vpkcntt@tlu.edu.vn', 'http://ce.tlu.edu.vn', 0),
+(6, 'Khoa công nghệ thông tin k59', '(+84) 024 3 5632211', 'nhà C1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'vpkcntt@tlu.edu.vn', 'http://ce.tlu.edu.vn', 0),
+(7, 'Khoa công nghệ thông tin 1', '(+84) 024 3 5632211', 'nhà C1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'vpkcntt@tlu.edu.vn', 'http://ce.tlu.edu.vn', 0),
 (8, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
 (9, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
 (10, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
 (11, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
 (12, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
 (13, 'Khoa kĩ thuật tài nguyên nước', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
-(14, 'Khoa kĩ thuật tài nguyên nước 1', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0);
+(14, 'Khoa kĩ thuật tài nguyên nước 1', '04 3852 8026', 'P.305 A1, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaN@tlu.edu.vn', 'http://kttnn.tlu.edu.vn/', 0),
+(35, 'khoa kinh tế - kế toán', ' (04) 3852.2028', 'P.206-207 A5, Đại học Thủy lợi, 175 Tây Sơn, Đống Đa, Hà Nội', 'KhoaK@tlu.edu.vn', 'http://fem.tlu.edu.vn', 0),
+(39, 'Phung Viet', ' (04) 3852.2028', 'tien phong', 'vietkaka9x@gmail.com', 'http://fem.tlu.edu.vn', 0),
+(40, 'Khoa công nghệ sinh học', '(024) 3564 0704', 'P.215, nhà A5, Trường Đại học Thủy Lợi 175 Tây Sơn, Đống Đa, HN.', 'cnsh@tlu.edu.vn', 'http://cnsh.tlu.edu.vn', 0);
 
 -- --------------------------------------------------------
 
@@ -92,12 +95,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `role`, `phoneWork`, `phone`, `email`, `idUnit`) VALUES
-(16, 'Phùng Thế Việt 1', 'Sinh Viên', '(+84)-024 3 5632299', '0926823391', 'vietkaka9x@gmail.com', 6),
-(19, 'Nguyễn Văn Bình', 'Sinh Viên', '04 3852 8026', ' (04) 3853.308', 'binh99@gmail.com', 6),
-(20, 'Nguyễn Văn Bình', 'Sinh Viên', '04 3852 8026', ' (04) 3853.308', 'binh99@gmail.com', 6),
-(21, 'Nguyễn Văn Tỉnh', 'Sinh Viên', '(+84)-024 3 5632299', '09626454565', 'Maimon0512@gmail.com', 6),
-(22, 'Nguyễn Văn Tỉnh', 'Sinh Viên', '(+84)-024 3 5632299', '09626454565', 'Maimon0512@gmail.com', 6),
-(23, 'Võ Thị Sáu', 'Sinh Viên', '09548563267', '0546795136', 'abc@gmail.com', 6);
+(16, 'Phùng Thế Việt k60', 'Sinh Viên', '(+84)-024 3 5632299', '0926823391', 'vietkaka9x@gmail.com', 10),
+(19, 'Nguyễn Văn Ngoan', 'Sinh Viên', '04 3852 8026', ' (04) 3853.308', 'binh99@gmail.com', 6),
+(29, 'Phung Viet', 'giảng viên', ' (04) 3852.2028', '0926823311', 'vietkaka9x@gmail.com', 6),
+(32, 'Phung Viet', 'sinh viên', ' (04) 3852.2028', '35491009531694', 'vietkaka9x@gmail.com', 12),
+(34, 'Trương Anh Quân', 'sinh viên', ' (04) 3852.9999', '09268238888', 'vietkaka9x@gmail.com', 6),
+(35, 'Phùng Thế Anh', 'sinh viên', ' (04) 3852.2028', '0321654987', 'vietpt72@wru.vn', 6);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -121,7 +124,7 @@ ALTER TABLE `unit`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userdepartment_fk` (`idUnit`);
+  ADD KEY `idUnit` (`idUnit`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -137,13 +140,23 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `idUnit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idUnit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`idUnit`) REFERENCES `unit` (`idUnit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

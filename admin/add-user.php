@@ -1,8 +1,9 @@
 <?php
 session_start();
+include("./permission/permission.php");
 require_once("../includes/connection.php");
 ?>
-<?php include "./headers.php" ?>
+<?php include "./headers.php"; ?>
 <?php
 if (isset($_POST["btn_submit"])) {
           //lấy thông tin từ các form bằng phương thức POST
@@ -18,11 +19,14 @@ if (isset($_POST["btn_submit"])) {
                     $sql = "INSERT INTO users(fullName, role ,phoneWork, phone, email, idUnit) 
                     VALUES ( '$fullName', '$role', '$phoneWork', '$phone', '$email', '$idUnit')";
                     // thực thi câu $sql với biến conn lấy từ file connection.php
-                    mysqli_query($conn, $sql);
-                    echo "chúc mừng bạn đã tạo thành công";
+                    $check = mysqli_query($conn, $sql);
+                    if ($check) {
+                              echo "chúc mừng bạn đã tạo thành công";
+                    } else {
+                              echo "không thành công";
+                    }
           }
 }
-
 ?>
 <section class="get-in-touch">
           <h1 class="title">Create Users</h1>
@@ -44,11 +48,11 @@ if (isset($_POST["btn_submit"])) {
                               <label class="label" for="email" type="text" id="phone" name="phone">Số điện thoại</label>
                     </div>
                     <div class="form-field col-lg-6 ">
-                              <input id="website" class="input-text js-input" type="email" name="email">
+                              <input id="website" class="input-text js-input" type="email" name="email" required>
                               <label class="label" for="website" type="text" id="email" name="email">Email</label>
                     </div>
                     <div class="form-field col-lg-6">
-                              <input id="parentId" class="input-text js-input" type="text" name="idUnit">
+                              <input id="parentId" class="input-text js-input" type="text" name="idUnit" required>
                               <label class="label" for="parentId" type="text" id="idUnit" name="idUnit">Mã đơn vị</label>
                     </div>
                     <div class="form-field col-lg-12">
